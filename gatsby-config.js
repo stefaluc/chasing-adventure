@@ -25,6 +25,13 @@ module.exports = {
     'gatsby-transformer-remark',
     'gatsby-transformer-sharp',
     'gatsby-plugin-react-helmet',
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/images`,
+      },
+    },
     'gatsby-plugin-sharp',
     {
       resolve: 'gatsby-source-contentful',
