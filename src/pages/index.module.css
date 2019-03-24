@@ -1,3 +1,12 @@
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
 .navContainer {
   display: flex;
   flex-direction: row;
@@ -10,14 +19,9 @@
   list-style: none;
   padding: 0;
   margin: 0;
-  max-height: 135px;
+  height: 30vh;
+  max-height: 100px;
   font-size: 1.0em;
-}
-
-@media only screen and (max-width: 600px) {
-  .navigation {
-    font-size: 0.6em;
-  }
 }
 
 .navigationItem {
@@ -37,9 +41,10 @@
 }
 
 .logo {
-  max-height: 135px;
-  width: 40vw;
-  max-width: 473px;
+  width: 80vw;
+  max-width: 1080px;
+  max-height: 308px;
+  margin-bottom: 20px;
 }
 
 .instagram {

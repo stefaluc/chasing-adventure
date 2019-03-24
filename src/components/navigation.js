@@ -2,30 +2,31 @@ import React from 'react'
 import { Link } from 'gatsby'
 import { StaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
+import logo from '../images/logo.png';
+import instagram from '../images/instagram.png';
 
 import styles from './navigation.module.css'
 
 export default (props) => (
   <nav role="navigation">
     <div className={styles.navContainer}>
-        <div style={{height: "100px", width: "50%"}}>
-          <Link to="/"><Image className={styles.logo} /></Link>
+        <div style={{maxHeight: "135px", width: "33%"}}>
+          <Link to="/"><img src={logo} alt="Logo" className={styles.logo}/></Link>
         </div>
         <ul className={styles.navigation}>
           <li className={styles.navigationItem}>
-            <Link to="/">HOME</Link>
+            <Link to="/blog">BLOG</Link>
           </li>
           <li className={styles.navigationItem}>
-            <Link to="/blog/">BLOG</Link>
+              <Link to="/route">ROUTE</Link>
           </li>
           <li className={styles.navigationItem}>
               <Link to="/">ABOUT ME</Link>
           </li>
           <li className={styles.navigationItem}>
-              <Link to="/">ROUTE</Link>
-          </li>
-          <li className={styles.navigationItem}>
-              <Link to="/">GEAR</Link>
+            <a href="https://instagram.com/lucas.stefanski" alt="Instagram" target="_blank">
+              <img src={instagram} className={styles.instagram} />
+            </a>
           </li>
         </ul>
       </div>
