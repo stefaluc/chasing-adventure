@@ -3,10 +3,7 @@ import { graphql } from 'gatsby'
 import { Link } from 'gatsby'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
-
-import Hero from '../components/hero'
-import Layout from '../components/layout'
-import ArticlePreview from '../components/article-preview'
+import { OutboundLink } from 'gatsby-plugin-google-analytics';
 
 import logo from '../images/logo.png';
 import instagram from '../images/instagram.png';
@@ -16,8 +13,6 @@ import styles from './index.module.css'
 class RootIndex extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
-    const posts = get(this, 'props.data.allContentfulBlogPost.edges')
-    const [author] = get(this, 'props.data.allContentfulPerson.edges')
 
     return (
       <div>
@@ -50,9 +45,9 @@ const Nav = () => (
               <Link to="/">ABOUT ME</Link>
           </li>
           <li className={styles.navigationItem}>
-            <a href="https://instagram.com/lucas.stefanski" alt="Instagram" target="_blank">
+            <OutboundLink href="https://instagram.com/lucas.stefanski" alt="Instagram" target="_blank">
               <img src={instagram} className={styles.instagram} />
-            </a>
+            </OutboundLink>
           </li>
         </ul>
       </div>
@@ -60,49 +55,3 @@ const Nav = () => (
 )
 
 export default RootIndex
-
-export const pageQuery = graphql`
-  query HomeQuery {
-    allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }) {
-      edges {
-        node {
-          title
-          slug
-          publishDate(formatString: "MMMM Do, YYYY")
-          tags
-          heroImage {
-            fluid(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
-             ...GatsbyContentfulFluid
-            }
-          }
-          description {
-            childMarkdownRemark {
-              html
-            }
-          }
-        }
-      }
-    }
-    allContentfulPerson(filter: { contentful_id: { eq: "15jwOBqpxqSAOy2eOO4S0m" } }) {
-      edges {
-        node {
-          name
-          shortBio {
-            shortBio
-          }
-          title
-          heroImage: image {
-            fluid(
-              maxWidth: 1180
-              maxHeight: 480
-              resizingBehavior: PAD
-              background: "rgb:000000"
-            ) {
-              ...GatsbyContentfulFluid
-            }
-          }
-        }
-      }
-    }
-  }
-`

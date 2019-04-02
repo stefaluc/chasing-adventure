@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import { StaticQuery, graphql } from "gatsby"
+import { OutboundLink } from 'gatsby-plugin-google-analytics';
 import Img from "gatsby-image"
 import logo from '../images/logo.png';
 import instagram from '../images/instagram.png';
@@ -24,9 +25,9 @@ export default (props) => (
               <Link to="/">ABOUT ME</Link>
           </li>
           <li className={styles.navigationItem}>
-            <a href="https://instagram.com/lucas.stefanski" alt="Instagram" target="_blank">
+            <OutboundLink href="https://instagram.com/lucas.stefanski" alt="Instagram" target="_blank">
               <img src={instagram} className={styles.instagram} />
-            </a>
+            </OutboundLink>
           </li>
         </ul>
       </div>

@@ -22,7 +22,7 @@ if (!spaceId || !accessToken) {
 module.exports = {
   siteMetadata: {
       title: 'Chasing Adventure',
-      siteUrl: '',
+      siteUrl: 'chasingadventure.net',
       description: 'A year long bicycle trip across Asia from Istanbul to Singapore',
   },
   pathPrefix: '/gatsby-contentful-starter',
@@ -41,6 +41,12 @@ module.exports = {
     {
       resolve: 'gatsby-source-contentful',
       options: contentfulConfig,
+    },
+    {
+      resolve: 'gatsby-plugin-google-analytics',
+      options: {
+        trackingId: 'UA-137522130-1',
+      }
     }
   ],
 }

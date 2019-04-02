@@ -30,13 +30,6 @@ class BlogIndex extends React.Component {
                   </li>
                 )
               })}
-              {posts.map(({ node }) => {
-                return (
-                  <li key={node.slug}>
-                    <ArticlePreview article={node} />
-                  </li>
-                )
-              })}
             </ul>
           </div>
         </div>
@@ -55,9 +48,8 @@ export const pageQuery = graphql`
           title
           slug
           publishDate(formatString: "MMMM Do, YYYY")
-          tags
           heroImage {
-            fluid(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
+            fluid(maxWidth: 1050, maxHeight: 588, resizingBehavior: SCALE) {
               ...GatsbyContentfulFluid
             }
           }
