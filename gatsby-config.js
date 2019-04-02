@@ -22,7 +22,7 @@ if (!spaceId || !accessToken) {
 module.exports = {
   siteMetadata: {
       title: 'Chasing Adventure',
-      siteUrl: 'chasingadventure.net',
+      siteUrl: 'https://chasingadventure.net',
       description: 'A year long bicycle trip across Asia from Istanbul to Singapore',
   },
   pathPrefix: '/gatsby-contentful-starter',
@@ -47,6 +47,63 @@ module.exports = {
       options: {
         trackingId: 'UA-137522130-1',
       }
-    }
+    },
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allContentfulBlogPost } }) => {
+              return allContentfulBlogPost.edges.map(edge => {
+                return Object.assign({}, {
+                  description: edge.node.description.childMarkdownRemark.html,
+                  date: edge.node.publishDate,
+                  url: site.siteMetadata.siteUrl + '/blog/' + edge.node.slug,
+                  guid: site.siteMetadata.siteUrl + '/blog/' + edge.node.slug,
+                  custom_elements: [{ "content:encoded": edge.node.body.childMarkdownRemark.html }],
+                })
+              })
+            },
+            query: `
+              {
+                allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }) {
+                  edges {
+                    node {
+                      title
+                      slug
+                      publishDate(formatString: "MMMM Do, YYYY")
+                      description {
+                        childMarkdownRemark {
+                          html
+                        }
+                      }
+                      body {
+                        childMarkdownRemark {
+                          html
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            `,
+            output: "/rss.xml",
+            title: "Chasing Adventure RSS Feed",
+          },
+        ],
+      },
+    },
   ],
 }
