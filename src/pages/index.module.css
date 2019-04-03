@@ -13,6 +13,12 @@
   justify-content: space-between;
 }
 
+.mainText {
+  max-width: 1080px;
+  font-size: 1.2em;
+  font-style: italic;
+}
+
 .navigation {
   display: flex;
   justify-content: flex-end;
@@ -50,4 +56,13 @@
 .instagram {
   width: 30px;
   height: 30px;
+}
+
+@media only screen and (max-width: 600px) {
+  .navigation {
+    font-size: 0.8em;
+  }
+  .mainText {
+    font-size: 0.8em;
+  }
 }

@@ -1,13 +1,13 @@
 import React from 'react'
-import { graphql } from 'gatsby'
 import { Link } from 'gatsby'
 import get from 'lodash/get'
-import Helmet from 'react-helmet'
 import { OutboundLink } from 'gatsby-plugin-google-analytics';
+import { withPrefix } from 'gatsby';
 
-import logo from '../images/logo.png';
+import SEO from '../components/SEO';
+
 import instagram from '../images/instagram.png';
-import favicon128 from '../images/favicon128.ico';
+import rss from '../images/rss.png';
 import styles from './index.module.css'
 
 class RootIndex extends React.Component {
@@ -16,14 +16,10 @@ class RootIndex extends React.Component {
 
     return (
       <div>
-        <Helmet title={siteTitle} 
-            link={[
-              { rel: 'icon', type: 'image/ico', sizes: '128x128', href: `${favicon128}` },
-            ]}
-        />
+        <SEO />
         <div className={styles.container}>
-          <img src={logo} className={styles.logo} />
-          <i style={{maxWidth: '1080px', fontSize: '1em'}}>Making my way from Istanbul to Singapore by bicycle.</i>
+          <img src={withPrefix('/images/logo.png')} className={styles.logo} />
+          <div className={styles.mainText}>Making my way from Istanbul to Singapore by bicycle.</div>
           <Nav />
         </div>
       </div>
@@ -48,6 +44,11 @@ const Nav = () => (
             <OutboundLink href="https://instagram.com/lucas.stefanski" alt="Instagram" target="_blank">
               <img src={instagram} className={styles.instagram} />
             </OutboundLink>
+          </li>
+          <li className={styles.navigationItem}>
+            <a href="https://chasingadventure.net/rss.xml" alt="RSS" target="_blank">
+              <img src={rss} className={styles.instagram} />
+            </a>
           </li>
         </ul>
       </div>

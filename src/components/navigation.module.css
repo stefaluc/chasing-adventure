@@ -14,12 +14,6 @@
   font-size: 1.0em;
 }
 
-@media only screen and (max-width: 600px) {
-  .navigation {
-    font-size: 0.6em;
-  }
-}
-
 .navigationItem {
   display: inline-flex;
   align-items: center;
@@ -42,7 +36,17 @@
   max-width: 473px;
 }
 
-.instagram {
+.icon {
   width: 30px;
   height: 30px;
+}
+
+@media only screen and (max-width: 600px) {
+  .navigation {
+    font-size: 0.6em;
+  }
+  .icon {
+    width: 20px;
+    height: 20px;
+  }
 }

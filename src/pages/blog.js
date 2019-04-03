@@ -1,26 +1,19 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
 import get from 'lodash/get'
-import Helmet from 'react-helmet'
-import styles from './blog.module.css'
 import Layout from "../components/layout"
 import ArticlePreview from '../components/article-preview'
 
-import favicon128 from '../images/favicon128.ico';
+import SEO from '../components/SEO';
 
 class BlogIndex extends React.Component {
   render() {
-    const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const posts = get(this, 'props.data.allContentfulBlogPost.edges')
 
     return (
       <Layout location={this.props.location} >
         <div style={{ background: '#fff' }}>
-          <Helmet title={siteTitle} 
-            link={[
-              { rel: 'icon', type: 'image/ico', sizes: '128x128', href: `${favicon128}` },
-            ]}
-          />
+          <SEO pathname='/blog' title="Blog" />
           <div className="wrapper">
             <ul className="article-list">
               {posts.map(({ node }) => {

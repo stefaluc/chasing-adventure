@@ -1,9 +1,8 @@
 import React from 'react'
 import get from 'lodash/get'
-import Helmet from 'react-helmet'
 import Layout from "../components/layout"
 
-import favicon128 from '../images/favicon128.ico';
+import SEO from '../components/SEO';
 
 class RouteIndex extends React.Component {
     render() {
@@ -11,11 +10,7 @@ class RouteIndex extends React.Component {
 
     return (
         <Layout location={this.props.location}>
-            <Helmet title={siteTitle} 
-                link={[
-                    { rel: 'icon', type: 'image/ico', sizes: '128x128', href: `${favicon128}` },
-                ]}
-            />
+            <SEO pathname="/route" title="Route" />
             <div style={{ background: '#fff' }}>
                 <div className="wrapper">
                     <h2 className="section-headline">The Plan</h2>

@@ -24,8 +24,9 @@ module.exports = {
       title: 'Chasing Adventure',
       siteUrl: 'https://chasingadventure.net',
       description: 'A year long bicycle trip across Asia from Istanbul to Singapore',
+      image: '/images/logo.png',
   },
-  pathPrefix: '/gatsby-contentful-starter',
+  pathPrefix: '/images',
   plugins: [
     'gatsby-transformer-remark',
     'gatsby-transformer-sharp',
@@ -70,6 +71,7 @@ module.exports = {
                 return Object.assign({}, {
                   description: edge.node.description.childMarkdownRemark.html,
                   date: edge.node.publishDate,
+                  title: edge.node.title,
                   url: site.siteMetadata.siteUrl + '/blog/' + edge.node.slug,
                   guid: site.siteMetadata.siteUrl + '/blog/' + edge.node.slug,
                   custom_elements: [{ "content:encoded": edge.node.body.childMarkdownRemark.html }],
