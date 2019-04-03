@@ -75,3 +75,7 @@ a {
 .list-inline li {
   display: inline-block;
 }
+
+blockquote {
+  text-align: center;
+}

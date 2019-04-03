@@ -38,9 +38,6 @@ const Nav = () => (
               <Link to="/route">ROUTE</Link>
           </li>
           <li className={styles.navigationItem}>
-              <Link to="/">ABOUT ME</Link>
-          </li>
-          <li className={styles.navigationItem}>
             <OutboundLink href="https://instagram.com/lucas.stefanski" alt="Instagram" target="_blank">
               <img src={instagram} className={styles.instagram} />
             </OutboundLink>
