@@ -18,7 +18,7 @@ class BlogPostTemplate extends React.Component {
           <SEO 
             title={post.title}
             pathname={`/blog/${post.slug}`}
-            image={post.heroImage.fluid}
+            image={post.heroImage.file.url}
             article
             description={post.description.childMarkdownRemark.html}
           />
@@ -52,10 +52,14 @@ export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
     contentfulBlogPost(slug: { eq: $slug }) {
       title
+      slug
       publishDate(formatString: "MMMM Do, YYYY")
       heroImage {
         fluid(maxWidth: 1180, background: "rgb:000000") {
           ...GatsbyContentfulFluid
+        }
+        file {
+          url
         }
       }
       body {
