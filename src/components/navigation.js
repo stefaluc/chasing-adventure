@@ -18,10 +18,13 @@ export default (props) => (
         </div>
         <ul className={styles.navigation}>
           <li className={styles.navigationItem}>
-            <Link to="/blog">BLOG</Link>
+              <Link to="/about">ABOUT</Link>
           </li>
           <li className={styles.navigationItem}>
               <Link to="/route">ROUTE</Link>
+          </li>
+          <li className={styles.navigationItem}>
+            <Link to="/blog">BLOG</Link>
           </li>
           <li className={styles.navigationItem}>
             <OutboundLink href="https://instagram.com/lucas.stefanski" alt="Instagram" target="_blank">

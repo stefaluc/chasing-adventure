@@ -19,7 +19,7 @@ class RootIndex extends React.Component {
         <SEO />
         <div className={styles.container}>
           <img src={withPrefix('/images/logo.png')} className={styles.logo} />
-          <div className={styles.mainText}>Making my way from Istanbul to Singapore by bicycle.</div>
+          <div className={styles.mainText}>Making my way around the world by bicycle.</div>
           <Nav />
         </div>
       </div>
@@ -32,10 +32,13 @@ const Nav = () => (
     <div className={styles.navContainer}>
         <ul className={styles.navigation}>
           <li className={styles.navigationItem}>
-            <Link to="/blog">BLOG</Link>
+              <Link to="/about">ABOUT</Link>
           </li>
           <li className={styles.navigationItem}>
               <Link to="/route">ROUTE</Link>
+          </li>
+          <li className={styles.navigationItem}>
+            <Link to="/blog">BLOG</Link>
           </li>
           <li className={styles.navigationItem}>
             <OutboundLink href="https://instagram.com/lucas.stefanski" alt="Instagram" target="_blank">

@@ -79,3 +79,9 @@ a {
 blockquote {
   text-align: center;
 }
+
+@media only screen and (max-width: 600px) {
+  .section-headline {
+    font-size: 0.9em;
+  }
+}
